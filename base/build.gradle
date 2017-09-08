@@ -62,9 +62,9 @@ dependencies {
      * Retrofit
      * https://github.com/square/retrofit
      */
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
     /**
      * dagger2
@@ -78,5 +78,17 @@ dependencies {
      * https://github.com/orhanobut/logger
      */
     compile 'com.orhanobut:logger:1.15'
+
+    /**
+     * rxjava
+     * https://github.com/ReactiveX/RxJava
+     */
+    compile "io.reactivex.rxjava2:rxjava:2.1.0"
+
+    /**
+     * eventbus
+     * https://github.com/greenrobot/EventBus
+     */
+    compile 'org.greenrobot:eventbus:3.0.0'
 
 }
