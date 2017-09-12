@@ -1,6 +1,6 @@
-package ren.daxu.architecture.example.comm;
+package ren.daxu.architecture.comm;
 
-import ren.daxu.architecture.example.data.DataRepository;
+import ren.daxu.architecture.data.DataRepository;
 import ren.daxu.base.BaseApplication;
 
 

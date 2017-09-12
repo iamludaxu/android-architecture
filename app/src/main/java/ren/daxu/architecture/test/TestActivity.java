@@ -1,4 +1,4 @@
-package ren.daxu.architecture.example.test;
+package ren.daxu.architecture.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +9,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import ren.daxu.architecture.example.R;
-import ren.daxu.architecture.example.R2;
-import ren.daxu.architecture.example.comm.CommActivity;
-import ren.daxu.architecture.example.data.type.TestData;
+import ren.daxu.architecture.R;
+import ren.daxu.architecture.R2;
+import ren.daxu.architecture.comm.CommActivity;
+import ren.daxu.architecture.data.type.TestData;
 
 public class TestActivity extends CommActivity<TestPresenter> implements TestContract.View {
 

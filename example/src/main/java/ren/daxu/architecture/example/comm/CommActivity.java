@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import ren.daxu.architecture.example.data.DataRepository;
 import ren.daxu.base.BaseFragmentActivity;
-import ren.daxu.base.BaseModel;
 import ren.daxu.base.BasePresenter;
 
 /**
@@ -20,10 +20,15 @@ public abstract class CommActivity<P extends BasePresenter> extends BaseFragment
 
     private Unbinder unbinder;
 
+    protected DataRepository mDataRepository;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        mDataRepository = ((CommApplication)getApplication()).getDataRepository();
         super.onCreate(savedInstanceState);
+
     }
+
 
     @Override
     public void setAfterContentView() {
@@ -37,4 +42,5 @@ public abstract class CommActivity<P extends BasePresenter> extends BaseFragment
             unbinder.unbind();
         }
     }
+
 }

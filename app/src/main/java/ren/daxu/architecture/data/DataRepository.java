@@ -1,4 +1,4 @@
-package ren.daxu.architecture.example.data;
+package ren.daxu.architecture.data;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -6,8 +6,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import ren.daxu.architecture.example.data.remote.Api;
-import ren.daxu.architecture.example.data.remote.TestResponse;
+import ren.daxu.architecture.data.remote.Api;
+import ren.daxu.architecture.data.remote.TestResponse;
 
 
 /**

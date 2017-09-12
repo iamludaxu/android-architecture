@@ -40,7 +40,9 @@ public abstract class BaseFragmentActivity<P extends BasePresenter> extends Frag
         setAfterContentView();
         initView();
         initPresenter();
-        presenter.subscribe();
+        if (presenter!=null){
+            presenter.subscribe();
+        }
 
     }
 
