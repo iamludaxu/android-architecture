@@ -1,4 +1,4 @@
-package ren.daxu.architecture.example.api;
+package ren.daxu.architecture.example.data.remote;
 
 import ren.daxu.base.libs.OkHttpHelper;
 import retrofit2.Retrofit;

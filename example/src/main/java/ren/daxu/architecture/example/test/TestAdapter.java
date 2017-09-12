@@ -9,11 +9,11 @@ import android.widget.TextView;
 import butterknife.BindView;
 import ren.daxu.architecture.example.R;
 import ren.daxu.architecture.example.R2;
-import ren.daxu.architecture.example.api.TestResponse;
 import ren.daxu.architecture.example.comm.BaseObjectAdapter;
 import ren.daxu.architecture.example.comm.ImageHelper;
+import ren.daxu.architecture.example.data.type.TestData;
 
-public class TestAdapter extends BaseObjectAdapter<TestAdapter.TestView,TestResponse.TestData> {
+public class TestAdapter extends BaseObjectAdapter<TestAdapter.TestView, TestData> {
 
 
     public TestAdapter(Context context) {
@@ -31,8 +31,8 @@ public class TestAdapter extends BaseObjectAdapter<TestAdapter.TestView,TestResp
     }
 
     @Override
-    protected void bindView(TestView holder, TestResponse.TestData data, int position, View convertView, ViewGroup parent) {
-        ImageHelper.showCommGif(mContext,"http://android-github.daxu.ren/woxingxiao_BubbleSeekBar0.gif?imageMogr2/auto-orient/thumbnail/300x600%3E",holder.imageView);
+    protected void bindView(TestView holder, TestData data, int position, View convertView, ViewGroup parent) {
+        ImageHelper.showCommGif(mContext, "http://android-github.daxu.ren/" + data.getImageDatas().get(0).getSrc() + "?imageMogr2/auto-orient/thumbnail/300x600%3E", holder.imageView);
         holder.textView.setText(data.getName());
     }
 

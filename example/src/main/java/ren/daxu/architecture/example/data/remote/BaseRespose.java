@@ -1,4 +1,4 @@
-package ren.daxu.architecture.example.api;
+package ren.daxu.architecture.example.data.remote;
 
 public class BaseRespose<T> {
 

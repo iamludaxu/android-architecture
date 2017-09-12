@@ -1,4 +1,4 @@
-package ren.daxu.architecture.example.api;
+package ren.daxu.architecture.example.data.remote;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -8,6 +8,5 @@ public interface ApiService {
 
     @GET("getitem")
     Observable<TestResponse> test(@Query("index") int index);
-
 
 }

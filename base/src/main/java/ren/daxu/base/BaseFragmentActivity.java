@@ -10,13 +10,10 @@ import com.orhanobut.logger.Logger;
 /**
  * 0???Activity
  * @param <P>
- * @param <M>
  */
-public abstract class BaseFragmentActivity<P extends BasePresenter, M extends BaseModel> extends FragmentActivity {
+public abstract class BaseFragmentActivity<P extends BasePresenter> extends FragmentActivity {
 
     public P presenter;
-
-    public M baseModel;
 
     public abstract int layoutId();
 
@@ -43,6 +40,7 @@ public abstract class BaseFragmentActivity<P extends BasePresenter, M extends Ba
         setAfterContentView();
         initView();
         initPresenter();
+        presenter.subscribe();
 
     }
 
@@ -52,11 +50,7 @@ public abstract class BaseFragmentActivity<P extends BasePresenter, M extends Ba
 
 
         if (presenter != null) {
-            presenter.destory();
-        }
-
-        if (baseModel != null) {
-            baseModel.clear();
+            presenter.unsubscrble();
         }
 
     }

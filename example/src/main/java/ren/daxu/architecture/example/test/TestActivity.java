@@ -11,10 +11,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import ren.daxu.architecture.example.R;
 import ren.daxu.architecture.example.R2;
-import ren.daxu.architecture.example.api.TestResponse;
 import ren.daxu.architecture.example.comm.CommActivity;
+import ren.daxu.architecture.example.data.DataRepository;
+import ren.daxu.architecture.example.data.type.TestData;
 
-public class TestActivity extends CommActivity<TestPresenter,TestModel> implements TestContract.View {
+public class TestActivity extends CommActivity<TestPresenter> implements TestContract.View {
 
 
     @BindView(R2.id.text)
@@ -24,7 +25,12 @@ public class TestActivity extends CommActivity<TestPresenter,TestModel> implemen
     ListView mListLV;
 
 
+    private TestContract.Presenter mPresenter;
+
+
     private TestAdapter mTestAdapter;
+
+
 
     @Override
     public int layoutId() {
@@ -40,10 +46,7 @@ public class TestActivity extends CommActivity<TestPresenter,TestModel> implemen
     public void initView() {
         mTextTV.setText("我是陆大旭");
         mTestAdapter = new TestAdapter(this);
-        mTestAdapter.add(new TestResponse.TestData());
         mListLV.setAdapter(mTestAdapter);
-
-
     }
 
     @OnClick(R.id.change_btn)
@@ -58,8 +61,7 @@ public class TestActivity extends CommActivity<TestPresenter,TestModel> implemen
 
     @Override
     public void initPresenter() {
-        presenter = new TestPresenter();
-        presenter.init(this, baseModel);
+        presenter = new TestPresenter(new DataRepository(),this);
     }
 
     @Override
@@ -74,7 +76,12 @@ public class TestActivity extends CommActivity<TestPresenter,TestModel> implemen
     }
 
     @Override
-    public void addDatas(List<TestResponse.TestData> data) {
+    public void addDatas(List<TestData> data) {
         mTestAdapter.add(data);
+    }
+
+    @Override
+    public void setPresenter(TestContract.Presenter presenter) {
+        mPresenter = presenter;
     }
 }

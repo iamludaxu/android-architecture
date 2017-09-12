@@ -2,28 +2,24 @@ package ren.daxu.architecture.example.test;
 
 import java.util.List;
 
-import ren.daxu.architecture.example.api.TestResponse;
-import ren.daxu.base.BaseModel;
+import ren.daxu.architecture.example.data.type.TestData;
 import ren.daxu.base.BasePresenter;
 import ren.daxu.base.BaseView;
 
 public interface TestContract {
 
-    interface Model extends BaseModel {
 
-    }
-
-    interface View extends BaseView {
+    interface View extends BaseView<Presenter> {
         void chage(int number);
 
-        void addDatas(List<TestResponse.TestData> data);
+        void addDatas(List<TestData> data);
     }
 
-    abstract static class Presenter extends BasePresenter<View, Model> {
+    interface Presenter extends BasePresenter {
 
-        abstract void change(String text);
+        void change(String text);
 
-        abstract void loadData();
+        void loadData();
     }
 
 }

@@ -6,5 +6,6 @@ package ren.daxu.base;
  */
 public interface BaseModel {
 
+
     public void clear();
 }

@@ -1,41 +1,50 @@
 package ren.daxu.architecture.example.test;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
-import ren.daxu.architecture.example.api.Api;
-import ren.daxu.architecture.example.api.TestResponse;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
-public class TestPresenter extends TestContract.Presenter {
+import java.util.List;
+
+import ren.daxu.architecture.example.data.DataRepository;
+import ren.daxu.architecture.example.data.TaskData;
+import ren.daxu.architecture.example.data.type.TestData;
+
+public class TestPresenter implements TestContract.Presenter {
 
 
     private static int number;
 
+    private TestContract.View mView;
 
-    @Override
-    public void destory() {
+    private DataRepository mDataRepository;
 
+    public TestPresenter(DataRepository dataRepository,TestContract.View view){
+        mDataRepository = dataRepository;
+        mView = view;
     }
 
-    @Override
-    void change(String text) {
+    public void change(String text) {
         number++;
-        v.chage(number);
+        mView.chage(number);
+    }
+
+    public void loadData() {
+        mDataRepository.loadTestData();
+    }
+
+
+    @Override
+    public void subscribe() {
+        EventBus.getDefault().register(this);
+    }
+
+    @Subscribe
+    public void onMessageEvent(TaskData taskData) {
+        mView.addDatas((List<TestData>) taskData.getData());
     }
 
     @Override
-    void loadData() {
-        Api.getService().test(1).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<TestResponse>() {
-
-            @Override
-            public void accept(@NonNull TestResponse testResponse) throws Exception {
-                int ii = testResponse.getStatus();
-
-                v.addDatas(testResponse.getData());
-            }
-        });
+    public void unsubscrble() {
+        EventBus.getDefault().unregister(this);
     }
-
-
 }

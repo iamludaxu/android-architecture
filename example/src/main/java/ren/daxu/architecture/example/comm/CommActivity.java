@@ -14,9 +14,8 @@ import ren.daxu.base.BasePresenter;
  * 应用基础层Activity
  *
  * @param <P>
- * @param <M>
  */
-public abstract class CommActivity<P extends BasePresenter,M extends BaseModel> extends BaseFragmentActivity<P,M> {
+public abstract class CommActivity<P extends BasePresenter> extends BaseFragmentActivity<P> {
 
 
     private Unbinder unbinder;
