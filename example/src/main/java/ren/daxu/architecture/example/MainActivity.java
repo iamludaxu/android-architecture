@@ -23,14 +23,7 @@ public class MainActivity extends FragmentActivity {
         ButterKnife.bind(this);
 
 
-        Api.getService().test(1).subscribeOn(Schedulers.newThread()).subscribe(new Consumer<TestResponse>() {
 
-            @Override
-            public void accept(@NonNull TestResponse testResponse) throws Exception {
-                int ii = testResponse.getStatus();
-                Logger.d(ii);
-            }
-        });
 
 
     }

@@ -17,6 +17,12 @@
         android:layout_height="wrap_content"
         android:text="@string/str_btnchange" />
 
+    <Button
+        android:id="@+id/getdata_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_getdata" />
+
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"

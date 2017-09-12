@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentActivity;
 
 import com.orhanobut.logger.Logger;
 
-import butterknife.ButterKnife;
-
 
 /**
  * 0???Activity
@@ -28,6 +26,8 @@ public abstract class BaseFragmentActivity<P extends BasePresenter, M extends Ba
 
     public abstract void setBeforeContentView();
 
+    public abstract void setAfterContentView();
+
     private BaseFragmentActivity baseFragmentActivity;
 
 
@@ -40,7 +40,7 @@ public abstract class BaseFragmentActivity<P extends BasePresenter, M extends Ba
         setBeforeContentView();
         int layoutId = layoutId();
         setContentView(layoutId);
-        ButterKnife.bind(this);
+        setAfterContentView();
         initView();
         initPresenter();
 
@@ -50,7 +50,6 @@ public abstract class BaseFragmentActivity<P extends BasePresenter, M extends Ba
     protected void onDestroy() {
         super.onDestroy();
 
-        ButterKnife.unbind(this);
 
         if (presenter != null) {
             presenter.destory();

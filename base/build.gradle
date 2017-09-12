@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
@@ -39,11 +40,6 @@ dependencies {
      */
     compile 'com.google.code.gson:gson:2.8.0'
     /**
-     * butterknife
-     * https://github.com/JakeWharton/butterknife
-     */
-    compile 'com.jakewharton:butterknife:7.0.1'
-    /**
      * OkHttp
      * https://github.com/square/okhttp
      */
@@ -56,6 +52,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
 
     /**
      * dagger2
@@ -75,17 +72,7 @@ dependencies {
      * https://github.com/ReactiveX/RxJava
      */
     compile "io.reactivex.rxjava2:rxjava:2.1.0"
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
-    /**
-     * eventbus
-     * https://github.com/greenrobot/EventBus
-     */
-    compile 'org.greenrobot:eventbus:3.0.0'
 
-    /**
-     * Glide
-     * https://github.com/bumptech/glide
-     */
-    compile 'com.github.bumptech.glide:glide:4.0.0'
-    //provided('com.github.bumptech.glide:compiler:4.0.0')
 }
