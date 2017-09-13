@@ -1,7 +1,5 @@
-package ren.daxu.architecture.test;
+package ren.daxu.architecture.example.test_f;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -9,12 +7,18 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import ren.daxu.architecture.R;
-import ren.daxu.architecture.R2;
-import ren.daxu.architecture.comm.CommActivity;
-import ren.daxu.architecture.data.type.TestData;
+import ren.daxu.architecture.example.R;
+import ren.daxu.architecture.example.R2;
+import ren.daxu.architecture.example.comm.CommActivity;
+import ren.daxu.architecture.example.comm.CommFragment;
+import ren.daxu.architecture.example.data.DataRepository;
+import ren.daxu.architecture.example.data.type.TestData;
+import ren.daxu.architecture.example.test.TestAdapter;
+import ren.daxu.architecture.example.test.TestContract;
+import ren.daxu.architecture.example.test.TestPresenter;
 
-public class TestActivity extends CommActivity implements TestContract.View {
+public class TestFragment extends CommFragment implements TestContract.View{
+
 
 
     @BindView(R2.id.text)
@@ -23,11 +27,9 @@ public class TestActivity extends CommActivity implements TestContract.View {
     @BindView(R2.id.list)
     ListView mListLV;
 
+    private TestAdapter mTestAdapter;
 
     private TestContract.Presenter mPresenter;
-
-
-    private TestAdapter mTestAdapter;
 
 
     @Override
@@ -36,15 +38,11 @@ public class TestActivity extends CommActivity implements TestContract.View {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void initView() {
+    protected void initView() {
         mTextTV.setText("我是陆大旭");
-        mTestAdapter = new TestAdapter(this);
+        mTestAdapter = new TestAdapter(getContext());
         mListLV.setAdapter(mTestAdapter);
+        mPresenter.subscribe();
     }
 
     @OnClick(R.id.change_btn)
@@ -59,14 +57,16 @@ public class TestActivity extends CommActivity implements TestContract.View {
 
     @Override
     public void initPresenter() {
-        mPresenter = new TestPresenter(mDataRepository, this);
+        DataRepository dataRepository = ((CommActivity)getActivity()).getDataRepository();
+        new TestPresenter(dataRepository, this);
     }
+
 
     @Override
-    public void setBeforeContentView() {
-
+    public void onDestroyView() {
+        super.onDestroyView();
+        mPresenter.unsubscrble();
     }
-
 
     @Override
     public void chage(int number) {

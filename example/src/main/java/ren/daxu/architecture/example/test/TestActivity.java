@@ -14,7 +14,7 @@ import ren.daxu.architecture.example.R2;
 import ren.daxu.architecture.example.comm.CommActivity;
 import ren.daxu.architecture.example.data.type.TestData;
 
-public class TestActivity extends CommActivity<TestPresenter> implements TestContract.View {
+public class TestActivity extends CommActivity implements TestContract.View {
 
 
     @BindView(R2.id.text)
@@ -49,17 +49,17 @@ public class TestActivity extends CommActivity<TestPresenter> implements TestCon
 
     @OnClick(R.id.change_btn)
     public void change() {
-        presenter.change("");
+        mPresenter.change("");
     }
 
     @OnClick(R.id.getdata_btn)
     public void getData() {
-        presenter.loadData();
+        mPresenter.loadData();
     }
 
     @Override
     public void initPresenter() {
-        presenter = new TestPresenter(mDataRepository, this);
+        new TestPresenter(mDataRepository, this);
     }
 
     @Override

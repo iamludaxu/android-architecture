@@ -22,6 +22,7 @@ public class TestPresenter implements TestContract.Presenter {
     public TestPresenter(DataRepository dataRepository,TestContract.View view){
         mDataRepository = dataRepository;
         mView = view;
+        mView.setPresenter(this);
     }
 
     public void change(String text) {
