@@ -7,14 +7,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * 0层Fragment
+ */
 public abstract class BaseFragment extends Fragment {
 
+    /**
+     * 设置布局
+     *
+     * @return
+     */
     public abstract int layoutId();
 
+    /**
+     * 初始化组件
+     */
     protected abstract void initView();
 
+    /**
+     * 初始化Presenter
+     */
     public abstract void initPresenter();
 
+    /**
+     * 获取布局后
+     *
+     * @param view
+     */
     public abstract void setAfterContentView(View view);
 
     private View rootV;
@@ -29,6 +48,8 @@ public abstract class BaseFragment extends Fragment {
         initView();
         return rootV;
     }
+
+
 
     @Override
     public void onDestroy() {

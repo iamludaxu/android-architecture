@@ -20,7 +20,6 @@ import ren.daxu.architecture.example.test.TestPresenter;
 public class TestFragment extends CommFragment implements TestContract.View{
 
 
-
     @BindView(R2.id.text)
     TextView mTextTV;
 
@@ -57,6 +56,9 @@ public class TestFragment extends CommFragment implements TestContract.View{
 
     @Override
     public void initPresenter() {
+        /**
+         * 初始化Presenter
+         */
         DataRepository dataRepository = ((CommActivity)getActivity()).getDataRepository();
         new TestPresenter(dataRepository, this);
     }
@@ -82,4 +84,6 @@ public class TestFragment extends CommFragment implements TestContract.View{
     public void setPresenter(TestContract.Presenter presenter) {
         mPresenter = presenter;
     }
+
+
 }

@@ -11,6 +11,12 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 
+/**
+ * 基础适配器
+ *
+ * @param <V> 视图
+ * @param <T> 数据
+ */
 abstract public class BaseObjectAdapter<V, T> extends BaseAdapter {
 
     protected List<T> mDataList;

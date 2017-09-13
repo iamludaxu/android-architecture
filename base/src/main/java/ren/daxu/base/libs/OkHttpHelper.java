@@ -3,6 +3,11 @@ package ren.daxu.base.libs;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
+/**
+ *
+ * 请求
+ *
+ */
 public class OkHttpHelper {
 
     private OkHttpClient mClient;

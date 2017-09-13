@@ -16,17 +16,34 @@ import com.orhanobut.logger.Logger;
 public abstract class BaseFragmentActivity extends FragmentActivity {
 
 
+    /**
+     * 设置布局
+     * @return
+     */
     public abstract int layoutId();
 
+    /**
+     * 初始化组件
+     */
     public abstract void initView();
 
+    /**
+     * 初始化Presenter
+     * 例如 new XXXPresenter();
+     */
     public abstract void initPresenter();
 
+    /**
+     * 在调用setContentView的方法之前
+     */
     public abstract void setBeforeContentView();
 
+    /**
+     * 在调用setContentView的方法之后
+     */
     public abstract void setAfterContentView();
 
-    private BaseFragmentActivity baseFragmentActivity;
+    public BaseFragmentActivity mBaseFragmentActivity;
 
     /**
      * Fragment管理器
@@ -45,7 +62,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Logger.i("BaseFragmentActivity onCreate");
-        baseFragmentActivity = this;
+        mBaseFragmentActivity = this;
         setBeforeContentView();
         int layoutId = layoutId();
         setContentView(layoutId);
@@ -113,7 +130,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
                     "在调用replaceFragment函数之前请调用setFragmentContainerId函数来设置fragment container id");
         }
     }
-
 
 
 

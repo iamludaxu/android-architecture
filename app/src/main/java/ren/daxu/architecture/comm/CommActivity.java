@@ -31,7 +31,6 @@ public abstract class CommActivity extends BaseFragmentActivity{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mDataRepository = ((CommApplication)getApplication()).getDataRepository();
         super.onCreate(savedInstanceState);
-
     }
 
 

@@ -39,14 +39,15 @@ public class LaunchActivity extends CommActivity {
         particleTextView.setConfig(config);
         particleTextView.startAnimation();
 
-        // mHandler.sendEmptyMessageDelayed(0,3000);
+        mHandler.sendEmptyMessageDelayed(0,5000);
     }
 
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            particleTextView.stopAnimation();
+            finish();
+            startActivity(MainActivity.getIntent(mBaseFragmentActivity));
         }
     };
 

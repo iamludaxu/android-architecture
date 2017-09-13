@@ -14,7 +14,7 @@ public class TestFActivity extends CommActivity {
     @Override
     public void initView() {
         setFragmentContainerId(R.id.con);
-        showFragmentInContainer(R.id.con,new TestFragment(),0);
+        showFragment(new TestFragment());
     }
 
     @Override

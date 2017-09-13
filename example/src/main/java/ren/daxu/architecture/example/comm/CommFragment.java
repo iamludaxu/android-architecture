@@ -10,6 +10,11 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import ren.daxu.base.BaseFragment;
 
+/**
+ *
+ * 使用bufferknife注释
+ *
+ */
 public abstract class CommFragment extends BaseFragment {
 
 
