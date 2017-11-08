@@ -16,7 +16,6 @@ public class MainActivity extends CommActivity {
         return intent;
     }
 
-
     @Override
     public int layoutId() {
         return R.layout.activity_main;
